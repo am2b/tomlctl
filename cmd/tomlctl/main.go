@@ -40,11 +40,11 @@ func usage() {
 
 另,遍历TOML数组表的万能模板:
     JSON=$(tomlctl list 配置文件 数组表路径 --json)
-    echo "$JSON" | jq -c '.[]' | while read ELEM; do
+    echo "$JSON" | jq -c '.[]' | while read -r ELEM; do
         #提取字段
         字段1=$(echo "$ELEM" | jq -r '.字段1')
         字段2=$(echo "$ELEM" | jq -r '.字段2')
-    done:`,
+    done`,
     )
 
     os.Exit(2)
